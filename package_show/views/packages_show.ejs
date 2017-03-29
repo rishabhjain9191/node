@@ -1,0 +1,23 @@
+<html>
+<head>
+  <link href = "/assets/css/seo_general.css" type = "text/css" rel = stylesheet />
+</head>
+<body>
+<h1 style = 'text-align: center'>Mini Packages Page</h1>
+<%- viewHelper.renderReactComponent('package', {destinationName: destinations[0].name, days: days, nights: nights, price: price_total, imageUrl: image_url}) %>
+               <ul class="list-inline loc-list ellipsis_2_line block" style="min-height: 45px;">
+                    <% cities.split('->').forEach(function(city){ %>
+                     <li> <%= city %>  <span class="seoProdSprite city-arrow"></span></li>
+                    <% }) %>
+               </ul>
+                <ul class="js-scroll-ul-left-right list-inline inc-list">
+                    <% inclusions.forEach(function(inclusion) { %>
+                      <% if(inclusion.available) { %>
+                      <li> <i class="seoProdSprite seoProdSprite home_sprite coach-icon"></i>
+                          <span><%= inclusion.text %></span>
+                      </li>
+                    <% } %>
+                    <% }) %>
+                </ul>
+</body>
+</html>
