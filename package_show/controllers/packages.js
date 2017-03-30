@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request');
 
 var http = require('http');
 router.get('/:base_url', function(req, res) {
@@ -24,5 +25,10 @@ router.get('/:base_url', function(req, res) {
     });
   })
 });
+
+router.get('/package_info/:base_url/:id', function(req, res) {
+  console.log(req.url);
+  request("http://localhost/api/v3/tour_packages/" + req.params.base_url + "?id=" + req.params.id).pipe(res);
+})
 
 module.exports = router;
